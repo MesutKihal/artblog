@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+	{% load static %}
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta name="description" content="">
 		<title>Art & Culture</title>
-		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 		<script src="https://kit.fontawesome.com/d75b1ad41e.js" crossorigin="anonymous"></script>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Changa:wght@200..800&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Zain:ital,wght@0,200;0,300;0,400;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
 	</head>
 	<body dir="rtl">
 		<div class="void">
 		</div>
 		<nav>
-			<img class="logo" src="img/logo.jpg"></img>
+			<img class="logo" src="{% static 'img/logo.jpg' %}"></img>
 			<a>آخر الأخبار</a>
 			<a>موسيقى</a>
 			<a>أدب</a>
@@ -27,12 +28,14 @@
 				<a><i class="fa fa-twitter" aria-hidden="true"></i></a>
 				<a><i class="fa fa-youtube" aria-hidden="true"></i></a>
 			</div>
-			<span class="search-btn"><i class="fa-solid fa-magnifying-glass fa-xl"></i></span>
+			<span id="search-btn"><i class="fa-solid fa-magnifying-glass fa-xl"></i></span>
 		</nav>
 		<div class="banner">
 			<h1>الفنون الجميلة</h1>
 		</div>
-		<br>
+		<div id="search-bar" style="display: none;">
+			<input type="text" autocomplete="off" name="text" class="input" placeholder="إبحث">
+		</div>
 		<section>
 			<div class="vertical-post">
 				<img src="media/img/post-img-1.png"></img>
@@ -48,21 +51,21 @@
 					<img src="media/img/post-img-2.jpg"></img>
 					<div align="justify" class="hor-desc">
 						<h3>انطلاق النسخة السابعة عشر للمهرجان الثقافي الوطني للمسرح المحترف</h3>
-						افتتح وزير الثقافة والفنون الجزائري، السيد "زهير بللو"، مساء الجمعة 20 ديسمبر 2024، فعاليات الدورة السابعة عشر من "المهرجان الثقافي الوطني للمسرح المحترف"، التي تحمل اسم الفنانة "نادية طالبي"
+						افتتح وزير الثقافة والفنون الجزائري، السيد "زهير بللو"، مساء الجمعة 20 ديسمبر 2024، فعاليات الدورة السابعة عشر ...
 					</div>
 				</div>
 				<div class="horizantal-post">
-					<img src="media/img/post-img-2.jpg"></img>
+					<img src="media/img/post-img-3.png"></img>
 					<div align="justify" class="hor-desc">
-						<h3>انطلاق النسخة السابعة عشر للمهرجان الثقافي الوطني للمسرح المحترف</h3>
-						افتتح وزير الثقافة والفنون الجزائري، السيد "زهير بللو"، مساء الجمعة 20 ديسمبر 2024، فعاليات الدورة السابعة عشر من "المهرجان الثقافي الوطني للمسرح المحترف"، التي تحمل اسم الفنانة "نادية طالبي"
+						<h3>تشريح الانهيار العربي والشخصي في تجربة مسرحيّ التسييس</h3>
+						لطالما سعى الأدب السوري المعاصر لتصفية حساب المجتمع من السلطة السورية المستبدة، ولعب أدباء سوريون معاصرون ...
 					</div>
 				</div>
 				<div class="horizantal-post">
-					<img src="media/img/post-img-2.jpg"></img>
+					<img src="media/img/post-img-4.png"></img>
 					<div align="justify" class="hor-desc">
-						<h3>انطلاق النسخة السابعة عشر للمهرجان الثقافي الوطني للمسرح المحترف</h3>
-						افتتح وزير الثقافة والفنون الجزائري، السيد "زهير بللو"، مساء الجمعة 20 ديسمبر 2024، فعاليات الدورة السابعة عشر من "المهرجان الثقافي الوطني للمسرح المحترف"، التي تحمل اسم الفنانة "نادية طالبي"
+						<h3>نتفليكس تُعلن عرض الموسم الثالث والأخير من "Squid Game" في 2025</h3>
+						أعلنت شبكة نتفليكس عرض الموسم الثالث والأخير من المسلسل الأكثر شعبية والأنجح في السنوات الأخيرة على الشبكة "Squid Game"...
 					</div>
 				</div>
 			</div>
@@ -76,59 +79,38 @@
 				<span class="slideSwitch right-10" onclick="nextSlide()"><i class="fa-solid fa-circle-chevron-right fa-lg"></i></span>
 			</div>
 			<div id="slideImg1" name="slideItem" class="slide">
-				<img name="slideImg" src="img/slide1.png"></img>
+				<img name="slideImg" src="{% static 'img/slide1.png' %}"></img>
 			</div>
 			<div id="slideImg2" name="slideItem" class="slide" style="display: none;">
-				<img name="slideImg" src="img/slide2.jpg"></img>
+				<img name="slideImg" src="{% static 'img/slide2.jpg' %}"></img>
 			</div>
 			<div id="slideImg3" name="slideItem" class="slide" style="display: none;">
-				<img name="slideImg" src="img/slide3.jpg"></img>
+				<img name="slideImg" src="{% static 'img/slide3.jpg' %}"></img>
 			</div>
 			<div id="slideImg4" name="slideItem" class="slide" style="display: none;">
-				<img name="slideImg" src="img/slide4.jpeg"></img>
+				<img name="slideImg" src="{% static 'img/slide4.jpeg' %}"></img>
 			</div>
 			<div class="dots">
-				<span id="dot1" class="dot" onclick="currentSlide(1)"></span>
-				<span id="dot2" class="dot" onclick="currentSlide(2)"></span>
-				<span id="dot3" class="dot" onclick="currentSlide(3)"></span>
 				<span id="dot4" class="dot" onclick="currentSlide(4)"></span>
+				<span id="dot3" class="dot" onclick="currentSlide(3)"></span>
+				<span id="dot2" class="dot" onclick="currentSlide(2)"></span>
+				<span id="dot1" class="dot" onclick="currentSlide(1)"></span>
 			</div>
 		</div>
 		<div>
-			<aside>
-				newsletter
-			</aside>
-			<div class="posts">
-				<div class="horizantal-post">
-					<img src="media/img/post-img-2.jpg"></img>
-					<div align="justify" class="hor-desc">
-						<h3>انطلاق النسخة السابعة عشر للمهرجان الثقافي الوطني للمسرح المحترف</h3>
-						افتتح وزير الثقافة والفنون الجزائري، السيد "زهير بللو"، مساء الجمعة 20 ديسمبر 2024، فعاليات الدورة السابعة عشر من "المهرجان الثقافي الوطني للمسرح المحترف"، التي تحمل اسم الفنانة "نادية طالبي"
-					</div>
-				</div>
-				<div class="horizantal-post">
-					<img src="media/img/post-img-2.jpg"></img>
-					<div align="justify" class="hor-desc">
-						<h3>انطلاق النسخة السابعة عشر للمهرجان الثقافي الوطني للمسرح المحترف</h3>
-						افتتح وزير الثقافة والفنون الجزائري، السيد "زهير بللو"، مساء الجمعة 20 ديسمبر 2024، فعاليات الدورة السابعة عشر من "المهرجان الثقافي الوطني للمسرح المحترف"، التي تحمل اسم الفنانة "نادية طالبي"
-					</div>
-				</div>
-				<div class="horizantal-post">
-					<img src="media/img/post-img-2.jpg"></img>
-					<div align="justify" class="hor-desc">
-						<h3>انطلاق النسخة السابعة عشر للمهرجان الثقافي الوطني للمسرح المحترف</h3>
-						افتتح وزير الثقافة والفنون الجزائري، السيد "زهير بللو"، مساء الجمعة 20 ديسمبر 2024، فعاليات الدورة السابعة عشر من "المهرجان الثقافي الوطني للمسرح المحترف"، التي تحمل اسم الفنانة "نادية طالبي"
-					</div>
-				</div>
-				<div class="horizantal-post">
-					<img src="media/img/post-img-2.jpg"></img>
-					<div align="justify" class="hor-desc">
-						<h3>انطلاق النسخة السابعة عشر للمهرجان الثقافي الوطني للمسرح المحترف</h3>
-						افتتح وزير الثقافة والفنون الجزائري، السيد "زهير بللو"، مساء الجمعة 20 ديسمبر 2024، فعاليات الدورة السابعة عشر من "المهرجان الثقافي الوطني للمسرح المحترف"، التي تحمل اسم الفنانة "نادية طالبي"
-					</div>
-				</div>
-			</div>
-		<div>
+		
+		</div>
 	</body>
-	<script src="js/index.js"></script>
+	<script>
+		let btn = document.getElementById("search-btn")
+		let div = document.getElementById("search-bar")
+		btn.onclick = (event) => {
+			if (div.style.display == "none") {
+				div.style.display = "flex";
+			} else {
+				div.style.display = "none";
+			}
+		}
+	</script>
+	<script src="{% static 'js/index.js' %}"></script>
 </html>
