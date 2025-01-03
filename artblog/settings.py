@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-e_rl!6+!a#_g%69#v@5w%(wa8#%x&iy(^9i4%w4259*tgr=!q_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "artblog.onrender.com"]
 
@@ -109,8 +109,8 @@ STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = [
-    "main/static",
-    os.path.join(BASE_DIR, 'static'),
+    "main/static/",
+    # BASE_DIR / 'static',
 ]
 
 MEDIA_URL = "media/"
