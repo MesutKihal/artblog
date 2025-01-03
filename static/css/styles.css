@@ -54,10 +54,25 @@ nav > a:hover {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: #c8ad7f;
+	background: #2980b9;
 	color: white;
 	font-size: 28px;
 	height: 20vh;
+}
+
+.section-title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: black;
+	font-size: 28px;
+	margin-top: 2rem;
+	height: 20vh;
+}
+
+.section-title > h1:hover {
+	transition: color 0.6s;
+	color: #c8ad7f;
 }
 
 .contact {
@@ -102,25 +117,50 @@ section {
 	justify-content: flex-start;
 	max-width: 50%;
 	margin: 15px;
-	height: 120%;
+	height: 100%;
 	font-size: 20px;
 
 }
 
+.vertical-post-full {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 5px;
+	max-width: 80%;
+	margin: 15px;
+	height: 100%;
+	font-size: 20px;
+}
+
+.horizantal-small-post {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	align-content: flex-start;
+	width: 45%;
+	margin-top: 3rem;
+	box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
 .horizantal-post {
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
 	align-content: flex-start;
-	height: 50vh;
+	height: 30vh;
 	max-width: 100%;
 	margin-top: 15px;
-	
-	/* padding: 5px; */
-	/* margin-top: 5rem; */
 }
 
-.vertical-post img {
+.horizantal-small-post img {
+	align-self: center;
+	margin-left: 5px;
+	height: 100%;
+	width: 50%;
+} 
+
+.vertical-post img, .vertical-post-full img {
 	max-height: 70%;
 	max-width: 100%;
 }
@@ -148,6 +188,9 @@ section {
 	color: #000;
 }
 
+.hor-desc > h3:hover, .ver-desc > h3:hover {
+	text-decoration: underline;
+}
 
 .slideSection {
 	position: relative;
@@ -209,11 +252,11 @@ section {
 	margin-top: 8px;
 	margin-bottom: 8px;
 	padding: 10px;
-	height: 100vh;
+	height: 60vh;
 }
 
 .slide > img {
-	width: 80%;
+	width: 60%;
 	height: 100%;
 }
 
@@ -237,4 +280,33 @@ section {
 	background-color: #eee;
 	padding: 5px;
 	justify-content: center;
+}
+
+#category {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: space-around;
+	flex-wrap: wrap;
+}
+
+#categorized  {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+#sidenav {
+	display: flex;
+	flex-direction: column;
+	padding: 5px;
+	align-items: center;
+	background-color: #006A4E;
+	color: white;
+	width: 19%;
+	box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.post-link:hover {
+	text-decoration: underline;
 }
