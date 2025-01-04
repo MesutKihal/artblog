@@ -88,7 +88,7 @@ function getData(category)
 			sidenavH.innerText = "أخبار ذات صلة"
 			sidenavTitle.appendChild(sidenavH)
 			sidenav.appendChild(sidenavTitle)
-			for (var i = 6; i < 18; i++)
+			for (var i = 20; i < data.length; i++)
 			{
 				createLink(data[i].title, data[i].date, sidenav)
 			}

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Category, Post
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
+from django.db.models import Subquery
 
 def home(request):
     return render(request, "main/index.html")
@@ -21,11 +22,12 @@ def categorized(request, category):
 @csrf_exempt
 def content(request, category):
     data = []
-    latest_query = Post.objects.all().order_by('-date')
-    music_query = Post.objects.filter(category=Category.objects.get(code="music")).order_by('-date')
-    literature_query = Post.objects.filter(category=Category.objects.get(code="literature")).order_by('-date')
-    theatre_query = Post.objects.filter(category=Category.objects.get(code="theater")).order_by('-date')
-    cinema_query = Post.objects.filter(category=Category.objects.get(code="cinema")).order_by('-date')
+    latest_query = list(Post.objects.all().order_by('-date'))[0:8]
+    music_query = [post for post in Post.objects.filter(category=Category.objects.get(code="music")).order_by('-date') if post not in latest_query]
+    literature_query = [post for post in Post.objects.filter(category=Category.objects.get(code="literature")).order_by('-date') if post not in latest_query]
+    theatre_query = [post for post in Post.objects.filter(category=Category.objects.get(code="theater")).order_by('-date') if post not in latest_query]
+    cinema_query = [post for post in Post.objects.filter(category=Category.objects.get(code="cinema")).order_by('-date') if post not in latest_query]
+    categorized_query = [music_query, literature_query, theatre_query, cinema_query]
     for post in latest_query[0:4]:
         temp = dict()
         temp['id'] = post.id
@@ -35,7 +37,7 @@ def content(request, category):
         temp['description'] = post.description
         temp['date'] = post.date
         data.append(temp)
-    for query in [music_query, literature_query, theatre_query, cinema_query]:
+    for query in categorized_query:
         for i in range(0, 4):
             temp = dict()
             temp['id'] = query[i].id
@@ -45,4 +47,42 @@ def content(request, category):
             temp['description'] = query[i].description
             temp['date'] = query[i].date
             data.append(temp)
+            
+    left = []
+    for post in music_query[4:]:
+        temp = dict()
+        temp['id'] = post.id
+        temp['title'] = post.title
+        temp['img'] = post.image.url
+        temp['content'] = post.content
+        temp['description'] = post.description
+        temp['date'] = post.date
+        data.append(temp)
+    for post in literature_query[4:]:
+        temp = dict()
+        temp['id'] = post.id
+        temp['title'] = post.title
+        temp['img'] = post.image.url
+        temp['content'] = post.content
+        temp['description'] = post.description
+        temp['date'] = post.date
+        data.append(temp)
+    for post in theatre_query[4:]:
+        temp = dict()
+        temp['id'] = post.id
+        temp['title'] = post.title
+        temp['img'] = post.image.url
+        temp['content'] = post.content
+        temp['description'] = post.description
+        temp['date'] = post.date
+        data.append(temp)
+    for post in cinema_query[4:]:
+        temp = dict()
+        temp['id'] = post.id
+        temp['title'] = post.title
+        temp['img'] = post.image.url
+        temp['content'] = post.content
+        temp['description'] = post.description
+        temp['date'] = post.date
+        data.append(temp)
     return JsonResponse(data, safe=False)

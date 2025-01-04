@@ -325,3 +325,19 @@ nav > a:hover {
 	flex-wrap: wrap;
 	width: 80%;
 }
+
+footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 80vh;
+	background-color:#006A4E;
+	color: white;
+	font-size: 100px;
+}
+
+footer > img {
+	height: 50vh;
+	width: 50vh;
+}
