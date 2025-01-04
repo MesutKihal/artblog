@@ -38,6 +38,30 @@
 			<input type="text" autocomplete="off" name="text" class="input" placeholder="إبحث">
 		</div>
 		<section id="latest">
+			<div class="vertical-post">
+				<img src="{{ ver_post.image.url }}"></img>
+				<div align="justify" class="ver-desc">
+					<h3>{{ ver_post.title }}</h3>
+					<small>{{ ver_post.date }}</small>
+					<p>
+						{{ ver_post.description }}
+					</p>
+				</div>
+			</div>
+			<div>
+				{% for post in hor_posts %}
+					<div class="horizantal-post">
+						<img src="{{ post.image.url }}"></img>
+						<div align="justify" class="hor-desc">
+							<h3>{{ post.title }}</h3>
+							<small>{{ post.date }}</small>
+							<p>
+								{{ post.description }}
+							</p>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
 		</section>
 		<div style="display: flex;justify-content: center;">
 			<h1>إعلانات</h1>
@@ -67,6 +91,20 @@
 			</div>
 		</div>
 		<div id="categorized">
+			<div class="eighty">
+			{% for post in small_posts %}
+				<div class="horizantal-small-post">
+					<img src="{{ post.image.url }}"></img>
+					<div align="justify" class="hor-desc">
+						<h3>{{ post.title }}</h3>
+						<small>{{ post.date }}</small>
+						<p>
+							{{ post.description }}
+						</p>
+					</div>
+				</div>
+			{% endfor %}
+			</div>
 		</div>
 		<br>
 	</body>

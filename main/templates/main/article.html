@@ -67,6 +67,29 @@
 			</div>
 		</div>
 		<div id="categorized">
+			<div style="width: 80vw;">
+				<div class="vertical-post-full">
+					<img src="{{ post.image.url }}"></img>
+					<div align="justify" class="ver-desc">
+						<h3>{{ post.title }}</h3>
+						<small>{{ post.date }}</small>
+						<p>
+							{{ post.content }}
+						</p>
+					</div>
+				</div>
+			</div>
+			<div id="sidenav">
+				<div>
+					<h2>أخبار ذات صلة</h2>
+				</div>
+				{% for link in related %}
+					<div class="post-link">
+						<h3 onclick="window.location.href = '{% url 'article' link.id %}'">{{ link.title }}</h3>
+						<small>{{ link.date }}</small>
+					</div>
+				{% endfor %}
+			</div>
 		</div>
 		<br>
 	</body>

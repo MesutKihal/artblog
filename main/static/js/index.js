@@ -66,61 +66,43 @@ function getData(category)
 		if (category == "all")
 		{
 			latestDiv.innerText = ""
-			createPost("vertical-post", "ver-desc", data[0], latestDiv, "small")
+			createPost("vertical-post", "ver-desc", data[0], latestDiv)
 			let horsDiv = document.createElement('div')
 			for (var i = 1; i < 4; i++)
 			{
-				createPost("horizantal-post", "hor-desc", data[i], horsDiv, "small")
+				createPost("horizantal-post", "hor-desc", data[i], horsDiv)
 			}
 			latestDiv.appendChild(horsDiv)
 			let eightyDiv = document.createElement('div')
 			eightyDiv.style = "width: 80%;"
 			
-			createSection("music", "موسيقى", eightyDiv, data.slice(4, 6))
-			
+			createSection("music", "موسيقى", eightyDiv, data.slice(4, 8))
+			createSection("literature", "أدب", eightyDiv, data.slice(8, 12))
+			createSection("theater", "مسرح", eightyDiv, data.slice(12, 16))
+			createSection("cinema", "سينما", eightyDiv, data.slice(16, 20))
 			// منوعات
 			let sidenav = document.createElement('div')
 			sidenav.setAttribute('id', 'sidenav')
 			let sidenavTitle = document.createElement('div')
 			let sidenavH = document.createElement('h2')
-			sidenavH.innerText = "منوعات"
+			sidenavH.innerText = "أخبار ذات صلة"
 			sidenavTitle.appendChild(sidenavH)
 			sidenav.appendChild(sidenavTitle)
-			for (var i = 0; i < 6; i++)
+			for (var i = 6; i < 18; i++)
 			{
 				createLink(data[i].title, data[i].date, sidenav)
 			}
 			categorizeDiv.appendChild(eightyDiv)
 			categorizeDiv.appendChild(sidenav)
 		}
-		
 	}).catch(error => console.log(error))
 }
 
 setInterval(nextSlide, 7000);
 currentSlide(1);
 
-function getPost(data)
-{
-	latestDiv.innerText = ""
-	categorizeDiv.innerText = ""
-	let eightyDiv = document.createElement('div')
-	eightyDiv.style = "width: 80vw;"
-	createPost("vertical-post-full", "ver-desc", data, eightyDiv, "full")
-	categorizeDiv.appendChild(eightyDiv)
-	// أخبار ذات صلة
-	let sidenav = document.createElement('div')
-	sidenav.setAttribute('id', 'sidenav')
-	let sidenavTitle = document.createElement('div')
-	let sidenavH = document.createElement('h2')
-	sidenavH.innerText = "أخبار ذات صلة"
-	sidenavTitle.appendChild(sidenavH)
-	sidenav.appendChild(sidenavTitle)
-	
-	categorizeDiv.appendChild(sidenav)
-}
 
-function createPost(postClass, desClass, data, parentDiv, type)
+function createPost(postClass, desClass, data, parentDiv)
 {
 	let post = document.createElement('div')
 	post.classList.add(postClass)
@@ -132,7 +114,7 @@ function createPost(postClass, desClass, data, parentDiv, type)
 	desc.classList.add(desClass)
 	let title = document.createElement('h3')
 	title.onclick = (event) => {
-		getPost(data)
+		window.location.href = `article/${data.id}`
 	}
 	title.innerText = data.title
 	let small = document.createElement('small')
@@ -140,12 +122,7 @@ function createPost(postClass, desClass, data, parentDiv, type)
 	desc.appendChild(title)
 	desc.appendChild(small)
 	let descp = document.createElement('p')
-	if (type == "small")
-	{
-		descp.innerText = data.description
-	} else {
-		descp.innerText = data.content
-	}
+	descp.innerText = data.description
 	desc.appendChild(descp)
 	post.appendChild(desc)
 	parentDiv.appendChild(post)
@@ -178,7 +155,7 @@ function createSection(category, header, parentDiv, data)
 	div.setAttribute('id', "category")
 	for (var i = 0; i < data.length; i++)
 	{
-		createPost("horizantal-small-post", "hor-desc", data[i], div, "small")
+		createPost("horizantal-small-post", "hor-desc", data[i], div)
 	}
 	parentDiv.appendChild(div)
 }

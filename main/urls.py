@@ -8,10 +8,11 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('', views.home, name="home"),
+    path('article/<str:id>', views.article, name="article"),
+    path('category/<str:category>', views.categorized, name="categorized"),
     
     #API Routes
     path('content/<str:category>', views.content, name="content"),
-    # path('page/<str:category>'),
 ] + staticfiles_urlpatterns()
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
