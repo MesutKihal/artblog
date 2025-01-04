@@ -341,3 +341,12 @@ footer > img {
 	height: 50vh;
 	width: 50vh;
 }
+
+.icon {
+ /* position: absolute; */
+ /* left: 3rem; */
+ fill: #fff;
+ background: #000;
+ width: 4rem;
+ height: 100%;
+}

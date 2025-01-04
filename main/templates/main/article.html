@@ -30,7 +30,6 @@
 				<a><i class="fa fa-twitter" aria-hidden="true"></i></a>
 				<a><i class="fa fa-youtube" aria-hidden="true"></i></a>
 			</div>
-			<span id="search-btn"><i class="fa-solid fa-magnifying-glass fa-xl"></i></span>
 		</nav>
 		<div class="banner">
 			<h1>الفنون الجميلة</h1>
@@ -98,16 +97,5 @@
 		<img src="{% static 'img/logo.jpg' %}"></img>
 		الفنون الجميلة
 	</footer>
-	<script>
-		let btn = document.getElementById("search-btn")
-		let div = document.getElementById("search-bar")
-		btn.onclick = (event) => {
-			if (div.style.display == "none") {
-				div.style.display = "flex";
-			} else {
-				div.style.display = "none";
-			}
-		}
-	</script>
 	<script src="{% static 'js/index.js' %}"></script>
 </html>

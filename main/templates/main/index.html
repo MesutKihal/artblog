@@ -36,7 +36,8 @@
 			<h1>الفنون الجميلة</h1>
 		</div>
 		<div id="search-bar" style="display: none;">
-			<input type="text" autocomplete="off" name="text" class="input" placeholder="إبحث">
+			<svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><g><path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path></g></svg>
+			<input type="text" autocomplete="off" name="text" id="search-input" class="input" placeholder="إبحث">
 		</div>
 		<section id="latest">
 		</section>
@@ -78,12 +79,67 @@
 	<script>
 		let btn = document.getElementById("search-btn")
 		let div = document.getElementById("search-bar")
+		let input = document.getElementById("search-input")
+		let latest = document.getElementById("latest")
+		let categorized = document.getElementById("categorized")
 		btn.onclick = (event) => {
 			if (div.style.display == "none") {
 				div.style.display = "flex";
 			} else {
 				div.style.display = "none";
 			}
+		}
+		
+		input.onchange = (event) => {
+			latest.innerText = ""
+			categorized.innerText = ""
+			let eighty = document.createElement('div')
+			let value = ""
+			eighty.classList.add("eighty")
+			if (input.value == "")
+			{
+				value = "none"
+			} else {
+				value = input.value
+			}
+			fetch(`search/${value}`, {
+				headers: {
+						'Content-Type': 'application/json',
+					},
+					cache: 'no-store',
+				}).then(response => response.json()).then(data => {
+					for (var i=0; i < data.length; i++)
+					{
+						createPost("horizantal-small-post", "hor-desc", data[i], eighty)
+					}
+					latest.appendChild(eighty)
+				}).catch(error => console.log(error))
+		}
+		function createPost(postClass, desClass, data, parentDiv)
+		{
+			let post = document.createElement('div')
+			post.classList.add(postClass)
+			let img = document.createElement('img')
+			img.src = data.img
+			post.appendChild(img)
+			let desc = document.createElement('div')
+			desc.align = "justify"
+			desc.classList.add(desClass)
+			let title = document.createElement('h3')
+			title.onclick = (event) => {
+				window.location.href = `article/${data.id}`
+			}
+			title.innerText = data.title
+			let small = document.createElement('small')
+			small.innerText = data.date
+			desc.appendChild(title)
+			desc.appendChild(small)
+			let descp = document.createElement('p')
+			descp.innerText = data.description
+			desc.appendChild(descp)
+			post.appendChild(desc)
+			parentDiv.appendChild(post)
+			return
 		}
 	</script>
 	<script src="{% static 'js/index.js' %}"></script>

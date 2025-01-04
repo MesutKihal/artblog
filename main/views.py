@@ -20,6 +20,31 @@ def categorized(request, category):
     return render(request, "main/categorized.html", {"ver_post": posts[0], "hor_posts": posts[1:4], "small_posts": posts[4:]})
 
 @csrf_exempt
+def search(request, value):
+    data = []
+    if value == "none":
+        for post in Post.objects.all().order_by('-date'):
+            temp = dict()
+            temp['id'] = post.id
+            temp['title'] = post.title
+            temp['img'] = post.image.url
+            temp['content'] = post.content
+            temp['description'] = post.description
+            temp['date'] = post.date
+            data.append(temp)
+    else:
+        for post in Post.objects.filter(title__icontains=value).order_by('-date'):
+            temp = dict()
+            temp['id'] = post.id
+            temp['title'] = post.title
+            temp['img'] = post.image.url
+            temp['content'] = post.content
+            temp['description'] = post.description
+            temp['date'] = post.date
+            data.append(temp)
+    return JsonResponse(data, safe = False)
+
+@csrf_exempt
 def content(request, category):
     data = []
     latest_query = list(Post.objects.all().order_by('-date'))[0:8]
