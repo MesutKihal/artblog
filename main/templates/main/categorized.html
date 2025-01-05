@@ -41,7 +41,7 @@
 			<div class="vertical-post">
 				<img src="{{ ver_post.image.url }}"></img>
 				<div align="justify" class="ver-desc">
-					<h3>{{ ver_post.title }}</h3>
+					<h3 onclick="window.location.href = '{% url 'article' ver_post.id %}'">{{ ver_post.title }}</h3>
 					<small>{{ ver_post.date }}</small>
 					<p>
 						{{ ver_post.description }}
@@ -53,7 +53,7 @@
 					<div class="horizantal-post">
 						<img src="{{ post.image.url }}"></img>
 						<div align="justify" class="hor-desc">
-							<h3>{{ post.title }}</h3>
+							<h3 onclick="window.location.href = '{% url 'article' post.id %}'">{{ post.title }}</h3>
 							<small>{{ post.date }}</small>
 							<p>
 								{{ post.description }}
@@ -96,7 +96,7 @@
 				<div class="horizantal-small-post">
 					<img src="{{ post.image.url }}"></img>
 					<div align="justify" class="hor-desc">
-						<h3>{{ post.title }}</h3>
+						<h3 onclick="window.location.href = '{% url 'article' post.id %}'">{{ post.title }}</h3>
 						<small>{{ post.date }}</small>
 						<p>
 							{{ post.description }}
