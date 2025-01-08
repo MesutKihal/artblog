@@ -25,10 +25,10 @@
 			<a href="{% url 'categorized' 'theater' %}">مسرح</a>
 			<a href="{% url 'categorized' 'cinema' %}">سينما</a>
 			<div class="contact">
-				<a><i class="fa fa-instagram" aria-hidden="true"></i></a>
-				<a><i class="fa fa-facebook" aria-hidden="true"></i></a>
-				<a><i class="fa fa-twitter" aria-hidden="true"></i></a>
-				<a><i class="fa fa-youtube" aria-hidden="true"></i></a>
+				<!-- <a><i class="fa fa-instagram" aria-hidden="true"></i></a> -->
+				<!-- <a><i class="fa fa-facebook" aria-hidden="true"></i></a> -->
+				<!-- <a><i class="fa fa-twitter" aria-hidden="true"></i></a> -->
+				<!-- <a><i class="fa fa-youtube" aria-hidden="true"></i></a> -->
 			</div>
 			<span id="search-btn"><i class="fa-solid fa-magnifying-glass fa-xl"></i></span>
 		</nav>
@@ -73,9 +73,26 @@
 		<br>
 	</body>
 	<footer>
-		<img src="{% static 'img/logo.jpg' %}"></img>
-		الفنون الجميلة
+		<div>
+			<img src="{% static 'img/logo.jpg' %}"></img>
+			<h1>الفنون الجميلة</h1>
+		</div>
+		<div>
+			<h3>تواصل معنا</h3>
+			<div>
+				<p><i class="fa fa-envelope" aria-hidden="true"></i> artculture526@gmail.com</p>
+			</div>
+			<div>
+				<p><i class="fa fa-home" aria-hidden="true"></i> Rue Doudou Mokhtar ,Ben Aknoun, Alger</p>
+			</div>
+			<div>
+				<p><i class="fa fa-phone" aria-hidden="true"></i> 0792922628</p>
+			</div>
+		</div>
 	</footer>
+	<div style="text-align: center;">
+		جميع الحقوق محفوظة 2025
+	</div>
 	<script>
 		let btn = document.getElementById("search-btn")
 		let div = document.getElementById("search-bar")

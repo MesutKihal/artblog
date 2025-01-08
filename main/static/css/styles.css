@@ -47,7 +47,7 @@ nav > a:hover {
 
 #search-btn:hover {
 	transition: color 0.6s;
-	color: #c8ad7f;
+	color: #006A4E;
 }
 
 .banner {
@@ -72,7 +72,7 @@ nav > a:hover {
 
 .section-title > h1:hover {
 	transition: color 0.6s;
-	color: #c8ad7f;
+	color: #006A4E;
 }
 
 .contact {
@@ -141,7 +141,8 @@ section {
 	align-content: flex-start;
 	width: 45%;
 	margin-top: 3rem;
-	box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	overflow: hidden;
 }
 .horizantal-post {
 	display: flex;
@@ -158,7 +159,13 @@ section {
 	margin-left: 5px;
 	height: 80%;
 	width: 50%;
-} 
+}
+
+.horizantal-small-post:hover {
+	transform: scale(1.01);
+	
+}
+
 
 .vertical-post img, .vertical-post-full img {
 	max-height: 70%;
@@ -304,7 +311,7 @@ section {
 	background-color: #006A4E;
 	color: white;
 	width: 19%;
-	box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .post-link:hover {
@@ -328,18 +335,31 @@ nav > a:hover {
 
 footer {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: center;
-	justify-content: center;
+	margin-top: 0;
+	justify-content: space-around;
 	height: 80vh;
-	background-color:#006A4E;
+	background-color: #000;
 	color: white;
-	font-size: 100px;
+	font-size: 20px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-footer > img {
-	height: 50vh;
-	width: 50vh;
+footer > div > img {
+	max-height: 30vh;
+	max-width: 100vw;
+	border: 0.5px solid #fff;
+}
+
+footer:nth-child(1) div {
+	width: 30%;
+}
+footer:nth-child(2) div {
+	width: 40%;
+}
+footer:nth-child(3) div {
+	width: 40%;
 }
 
 .icon {
@@ -349,4 +369,9 @@ footer > img {
  background: #000;
  width: 4rem;
  height: 100%;
+}
+
+
+.smallicon {
+	margin: 5px;
 }
