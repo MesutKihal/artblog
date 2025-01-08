@@ -60,6 +60,20 @@ nav > a:hover {
 	height: 20vh;
 }
 
+.rounded-btn {
+	padding: 8px;
+	border-radius: 20px;
+	font-family: "Zain";
+	color: white;
+	background: black;
+}
+
+.rounded-btn:hover {
+	color: black;
+	background: white;
+	transition: background 0.8s ease;
+}
+
 .section-title {
 	display: flex;
 	justify-content: center;

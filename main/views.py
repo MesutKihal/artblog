@@ -19,6 +19,10 @@ def categorized(request, category):
         posts = Post.objects.filter(category=Category.objects.get(code=category)).order_by('-date')
     return render(request, "main/categorized.html", {"ver_post": posts[0], "hor_posts": posts[1:4], "small_posts": posts[4:]})
 
+def about(request):
+    return render(request, "main/about.html")
+    
+    
 @csrf_exempt
 def search(request, value):
     data = []

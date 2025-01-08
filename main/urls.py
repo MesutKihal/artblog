@@ -10,6 +10,7 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('article/<str:id>', views.article, name="article"),
     path('category/<str:category>', views.categorized, name="categorized"),
+    path('about/', views.about, name="about"),
     
     #API Routes
     path('content/<str:category>', views.content, name="content"),
